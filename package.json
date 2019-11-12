@@ -1,0 +1,15 @@
+{
+  "name": "streakjs",
+  "version": "0.2.0",
+  "description": "streakjs: JavaScript canvas framework",
+  "main": "./dist/streakjs.min.js",
+  "scripts": {
+    
+  },
+  "author": "guyoung",
+  "homepage": "https://github.com/guyoung/streakjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guyoung/streakjs.git"
+  }  
+}
