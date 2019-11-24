@@ -15,7 +15,7 @@ streakjs 是一款多端 JavaScript Canvas 框架，支持桌面及移动浏览�
 
 ## 开始使用
 
-- 引用 streakjs
+- 引入 streakjs
 
 streakjs 无依赖库，可以直接在[github](https://github.com/guyoung/streakjs/releases)下载js文件，或使用 npm 命令安装
 
