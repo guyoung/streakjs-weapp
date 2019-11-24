@@ -31,13 +31,13 @@ npm install streakjs
 
 - 创建舞台容器
 
-在<body>中添加一个用于 streakjs 创建舞台的容器
+在 html 中添加一个用于 streakjs 创建舞台的容器
 
 ```html
 <div id="container"></div>
 ```
 
-- 创建舞台并初始化容器、宽度和高度
+- 创建舞台并绑定容器、设置宽度和高度
 
 ```javascript
 var stage = new streakjs.Stage({
@@ -73,7 +73,7 @@ layer.add(circle);
 stage.add(layer);
 ```
 
-完整代码，详见 <https://guyoung.github.io/streakjs/#/starter/First>
+完整代码，详见 <https://guyoung.github.io/streakjs/#/getting_started/quickstart>
 
 ## Node.js
 
@@ -139,7 +139,7 @@ Node 类是场景、图层、图形、图形组等对象的基类，提供公共
 
 - streakjs.Stage 舞台
 
-Stage 是一个容器对象，在 streakjs 中,Stage 对象作为顶层容器使用。一个 Stage 对象可以添加多个 Layer 对象。
+Stage 是一个容器对象，在 streakjs 中,Stage 对象作为顶层容器使用。一个 Stage 对象可以添加多个图层。
 
 - streakjs.Layer 图层
 
@@ -267,7 +267,7 @@ var circle = new streakjs.shapes.Circle({
 
 ### 事件
 
-sreakjs 中所有继承自 Node 的对象，包括 Stage、Layer、Shape、Group 等，都可以绑定事件
+sreakjs 中所有继承自 Node 的对象都可以绑定事件
 
 - 绑定事件
 
@@ -335,7 +335,7 @@ setTimeout(function() {
 
 ### 选择器
 
-streakjs 的 Stage、Layer、Group 对象都具有 find、findOne 方法，可以根据 ID、Name 和类名来获取对象
+streakjs 的 Stage、Layer、Group 等容器对象都具有 find、findOne 方法，可以根据 ID、Name 和类名来获取对象
 
 - 根据 ID 获取对象
 
