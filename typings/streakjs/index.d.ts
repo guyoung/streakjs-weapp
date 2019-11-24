@@ -180,6 +180,8 @@ declare module "streakjs" {
          imageSmoothingEnabled?: boolean;
       }): void;
       draw(): Node;
+
+      static load(data: any, container?: any);
    }
 
    export abstract class Container<ChildType extends Node> extends Node {
@@ -399,46 +401,13 @@ declare module "streakjs" {
       clear(bounds?: IRect): void;
       reset(): void;
    }
-
-   interface loader {
-      loadImage(img: any, callback: Function, param?: any);
-      loadImages(sources: string[], callback: Function, param?: any);
-   }
-
-   interface Adaptive {
-      isBrowser: boolean;
-      isWx: boolean;
-      isNode: boolean;
-      supportPointerEvents: boolean;
-      supportTouchEvents: boolean;
-      enableBuffer: boolean;
-
-      getGlobal(): any;
-      setGlobal(val: any);
-      getCanvasRef(): any;
-      setCanvasRef(val: any);
-      createImageElement(): any;
-      createCanvasElement(): any;
-      createOffScreenCanvasElement(): any;
-      getDevicePixelRatio(): number | null;
-      now(): number | null;
-      requestAnimationFrame(callback: Function): any;
-      cancelAnimationFrame(requestID): any;
-      createDummyContext(): any;
-      getDummyContext(): any;
-   }
-
-   export let loader: loader;
-   export let adaptive: Adaptive;
-
+   
    export class Animation {
       constructor(func: (frame?: IFrame) => boolean|void, layers?: Layer[]);
 
       start(): Animation;
       stop(): Animation;
       isRunning(): boolean;
-
-
    }
 
    export class Tween {
@@ -484,6 +453,48 @@ declare module "streakjs" {
    export let IFrame: IFrame;
    export let Easings: Easings;
 
+   interface Adaptive {
+      isBrowser: boolean;
+      isWx: boolean;
+      isNode: boolean;
+      supportPointerEvents: boolean;
+      supportTouchEvents: boolean;
+      enableBuffer: boolean;
+
+      getGlobal(): any;
+      setGlobal(val: any);
+      getCanvasRef(): any;
+      setCanvasRef(val: any);
+      createImageElement(): any;
+      createCanvasElement(): any;
+      createOffScreenCanvasElement(): any;
+      getDevicePixelRatio(): number | null;
+      now(): number | null;
+      requestAnimationFrame(callback: Function): any;
+      cancelAnimationFrame(requestID): any;
+      createDummyContext(): any;
+      getDummyContext(): any;
+   }
+
+  
+   export let adaptive: Adaptive;
+
+   interface __color {
+      rgbToHex(r: number, g: number, b: number): string;
+      rgbToString(rgb: { r: number, g: number, b: number }): string;
+      hexToRgb(hex: string): { r: number, g: number, b: number };
+      getRandomColor(): string;
+   }
+
+
+   interface loader {
+      loadImage(img: any, callback: Function, param?: any);
+      loadImages(sources: string[], callback: Function, param?: any);
+   }
+
+
+  
+
    type config = {
       pixelRatio: number | undefined;
       inDblClickWindow: boolean;
@@ -515,15 +526,52 @@ declare module "streakjs" {
       get(val: any, defaultVal: any): any;
    }
 
+   export let color: __color;
    export let config: config;
+   export let loader: loader;
    export let values: values;
    export let log: log;
 
-   export let extension: any;
-
-   export namespace util {
+   interface __array {
+      destroyArray(array: any[]): void;
 
    }
+
+
+
+   interface __is {
+      isFunction(obj: any): boolean;
+      isPlainObject(obj: any): boolean;
+      isArray(obj: any): boolean;
+      isNumber(obj: any): boolean;
+      isString(obj: any): boolean;
+      isBoolean(obj: any): boolean;
+      isObject(val: any): boolean;
+   }
+
+
+   interface __object {
+      classApply(constructor: any, args: any): any;
+      destroyObject(obj: any, ignore?: string): void
+
+   }
+
+   interface __string {
+      capitalize(str: string): string;         
+      leftTrim(str): string;
+      rightTrim(str): string
+      trim(str): string;         
+   }
+
+   export let array: __array;  
+   export let is: __is;
+   export let object: __object;
+   export let string: __string;
+
+
+   export let extension: any;
+
+ 
 
    export namespace shapes {
       class Arc extends Shape {
